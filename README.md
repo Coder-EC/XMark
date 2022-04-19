@@ -1,5 +1,5 @@
 # XMark
-The strongest Markdown editor ever, also a good friend of programmers.
+Extremely Outstanding Coding Experience.
 <br>
 ## Statistics & Info
 #### Project name: XMark
