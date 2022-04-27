@@ -1,11 +1,7 @@
 package com.xmark.ui;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.ImageIcon;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * This frame class is the base class of the frame app system. provides
@@ -25,4 +21,20 @@ import java.awt.Image;
  */
 public class XFrame extends JFrame {
 
+    public JPanel contentPane = (JPanel) getContentPane();
+    public static final Color BASE_COLOR = new Color(0x232222);
+
+    public XFrame() {
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+    }
+
+    private void setUI() {
+
+    }
+
+    private void titleBar() {
+
+    }
 }
