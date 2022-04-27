@@ -1,2 +1,4 @@
-package com.xmark.logic;public class Main {
+package com.xmark.logic;
+
+public class Main {
 }

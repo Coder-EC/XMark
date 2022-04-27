@@ -1,2 +1,4 @@
-package com.xmark.ui;public class XButton {
+package com.xmark.ui;
+
+public class XButton {
 }

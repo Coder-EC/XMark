@@ -21,20 +21,39 @@ import java.awt.*;
  */
 public class XFrame extends JFrame {
 
+    /** The original content pane on the frame. Is a holder of the title bar. */
     public JPanel contentPane = (JPanel) getContentPane();
-    public static final Color BASE_COLOR = new Color(0x232222);
 
+    /** The base color scheme used in the app. */
+    public static final Color BASE_COLOR = new Color(0x282626);
+
+    /**
+     * The default constructor. No needs to manually pass in any arguments
+     * because it automatically decorates the frame and sets up the title
+     * bar. There are two private methods used in the constructor: {@code setUI()}
+     * and {@code titleBar()}.
+     */
     public XFrame() {
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setUI();
+        titleBar();
     }
 
     private void setUI() {
 
+        // Basic method settings
+        setSize(new Dimension(1000, 750));
+        setUndecorated(true);
+        contentPane.setBackground(BASE_COLOR);
+        contentPane.setLayout(new BorderLayout());
+
+        // Sizing function & Min Max Close
     }
 
     private void titleBar() {
 
+    }
+
+    public static void main(String[] args) {
+        new XFrame().setVisible(true);
     }
 }
