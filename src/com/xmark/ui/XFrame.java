@@ -12,7 +12,8 @@ import java.awt.*;
  * don't need to pass any arguments to the constructor, because it will
  * automatically fill in the title and the icon. The title bar will be
  * placed in the content pane because the frame is undecorated, meaning
- * there will be no extra border and title bar.
+ * there will be no extra border and title bar. Note that additional
+ * panels needs to be opaque when adding it. (Add it to {@code contentPane}.)
  * This class extends JFrame and uses its methods.
  *
  * @author Coder-EC, 2022/4/13 -
@@ -26,6 +27,8 @@ public class XFrame extends JFrame {
 
     /** The base color scheme used in the app. */
     public static final Color BASE_COLOR = new Color(0x282626);
+
+    private JPanel titleBar = new JPanel(new FlowLayout());
 
     /**
      * The default constructor. No needs to manually pass in any arguments
@@ -42,15 +45,17 @@ public class XFrame extends JFrame {
 
         // Basic method settings
         setSize(new Dimension(1000, 750));
+        setLocationRelativeTo(null);
         setUndecorated(true);
         contentPane.setBackground(BASE_COLOR);
         contentPane.setLayout(new BorderLayout());
 
-        // Sizing function & Min Max Close
+        // Sizing function
     }
 
     private void titleBar() {
 
+        // Title bar panel ui
     }
 
     public static void main(String[] args) {

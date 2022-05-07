@@ -1,8 +1,9 @@
 package com.xmark.ui;
 
 import java.awt.*;
+import java.io.Serializable;
 
-public class FluentLayout implements LayoutManager {
+public class FluentLayout implements LayoutManager, Serializable {
 
     /**
      * If the layout manager uses a per-component string,
@@ -62,5 +63,10 @@ public class FluentLayout implements LayoutManager {
     @Override
     public void layoutContainer(Container parent) {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Fluent Layout at " + hashCode();
     }
 }
