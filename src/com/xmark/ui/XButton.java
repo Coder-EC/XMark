@@ -1,4 +1,8 @@
 package com.xmark.ui;
 
-public class XButton {
+import javax.swing.*;
+
+public class XButton extends JButton {
+
+    public XButton(String text) {}
 }

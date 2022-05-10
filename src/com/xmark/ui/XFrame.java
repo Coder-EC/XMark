@@ -1,7 +1,17 @@
 package com.xmark.ui;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 
 /**
  * This frame class is the base class of the frame app system. provides
@@ -25,10 +35,16 @@ public class XFrame extends JFrame {
     /** The original content pane on the frame. Is a holder of the title bar. */
     public JPanel contentPane = (JPanel) getContentPane();
 
-    /** The base color scheme used in the app. */
-    public static final Color BASE_COLOR = new Color(0x282626);
+    /** The base color scheme used in the Editor Text Area. */
+    public static final Color BASE_COLOR_TEXT = new Color(0x252725);
 
-    private JPanel titleBar = new JPanel(new FlowLayout());
+    /** The base color scheme used in tha app panel. */
+    public static final Color BASE_COLOR = new Color(0x181818);
+
+    /** The text on the title bar that shows up current file. */
+    public JLabel currFile = new JLabel();
+
+    private final JPanel titleBar = new JPanel(new FlowLayout());
 
     /**
      * The default constructor. No needs to manually pass in any arguments
@@ -44,9 +60,10 @@ public class XFrame extends JFrame {
     private void setUI() {
 
         // Basic method settings
-        setSize(new Dimension(1000, 750));
+        setSize(new Dimension(1200, 750));
         setLocationRelativeTo(null);
         setUndecorated(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         contentPane.setBackground(BASE_COLOR);
         contentPane.setLayout(new BorderLayout());
 
@@ -55,7 +72,28 @@ public class XFrame extends JFrame {
 
     private void titleBar() {
 
+        // Title bar style settings
+        titleBar.setBackground(Color.BLACK);
+
         // Title bar panel ui
+        JLabel title = new JLabel("XMark");
+        XButton close = new XButton("×");
+        XButton min = new XButton("-");
+        XButton max = new XButton("+");
+        ImageIcon titleIcon = new ImageIcon("../../../../img/icon.ico");
+        JLabel titleIconLabel = new JLabel((Icon) titleIcon.getImage());  // FIXME ClassCastException
+
+        title.setFont(new Font("Calibri Light", Font.PLAIN, 16));
+        title.setBackground(new Color(0xEDEDED));
+
+        titleBar.add(titleIconLabel);
+        titleBar.add(title);
+        titleBar.add(currFile);
+        titleBar.add(close);
+        titleBar.add(min);
+        titleBar.add(max);
+
+        contentPane.add(titleBar, BorderLayout.NORTH);
     }
 
     public static void main(String[] args) {
