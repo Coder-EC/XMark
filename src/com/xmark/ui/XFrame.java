@@ -5,9 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 
 /**
  * This frame class is the base class of the frame app system. provides
@@ -31,12 +29,6 @@ public class XFrame extends JFrame {
     /** The original content pane on the frame. Is a holder of the title bar. */
     public JPanel contentPane = (JPanel) getContentPane();
 
-    /** The base color scheme used in the Editor Text Area. */
-    public static final Color BASE_COLOR_TEXT_EDIT = new Color(0x252725);
-
-    /** The base color scheme used in tha app panel. */
-    public static final Color BASE_COLOR = new Color(0x181818);
-
     /**
      * The default constructor. No needs to manually pass in any arguments
      * because it automatically decorates the frame and sets up the title
@@ -52,10 +44,11 @@ public class XFrame extends JFrame {
 
         // Basic method settings
         setSize(new Dimension(1200, 750));
+        setMinimumSize(new Dimension(120, 75));
         setLocationRelativeTo(null);
         setUndecorated(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        contentPane.setBackground(BASE_COLOR);
+        contentPane.setBackground(UIUtilities.BASE_COLOR);
         contentPane.setLayout(new BorderLayout());
 
         // Sizing function
@@ -65,6 +58,7 @@ public class XFrame extends JFrame {
 
         contentPane.add(new TitleBar(), BorderLayout.NORTH);
     }
+
 
     public static void main(String[] args) {
         new XFrame().setVisible(true);

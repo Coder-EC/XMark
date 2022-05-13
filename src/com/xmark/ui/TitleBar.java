@@ -6,7 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 
 public class TitleBar extends JPanel {
 
@@ -19,7 +21,7 @@ public class TitleBar extends JPanel {
 
     private void makeUI() {
 
-        setLayout(null);
+        setLayout(new FlowLayout());
 
         // Title bar style settings
         setBackground(Color.BLACK);
@@ -32,8 +34,12 @@ public class TitleBar extends JPanel {
         ImageIcon titleIcon = new ImageIcon("../../../../img/icon.ico");
         JLabel titleIconLabel = new JLabel(titleIcon);
 
-        title.setFont(new Font("Calibri Light", Font.PLAIN, 16));
+        title.setFont(new Font("Dialog", Font.PLAIN, 16));
         title.setForeground(new Color(0xEDEDED));
+
+        close.addActionListener(e -> System.exit(0));
+        min.addActionListener(e -> Frame.getFrames()[0].setExtendedState(Frame.ICONIFIED));
+        max.addActionListener(e -> Frame.getFrames()[0].setExtendedState(Frame.MAXIMIZED_BOTH));
 
         add(titleIconLabel);
         add(title);
