@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 /**
  * Button UI class. A button is the most basic and most important component in
@@ -26,18 +27,21 @@ import java.awt.Graphics2D;
  */
 public class XButton extends JButton {
 
+    private boolean isClicked = false;
+
     private final DefaultButtonModel model = (DefaultButtonModel) getModel();
 
-    private Color bgColor;
+    private Color bgColor = new Color(35, 35, 35);
     private boolean animate;  // TODO Flag value for settings -> app animation
 
     public XButton(String text) {
         setContentAreaFilled(false);
-        setPreferredSize(new Dimension(50, 30));
+        setPreferredSize(new Dimension(45, 20));
         setBorderPainted(false);
         setFocusPainted(false);
-        setFont(new Font("Dialog", Font.PLAIN, 12));
+        setFont(new Font("Microsoft YaHei", Font.PLAIN, 12));
         setForeground(new Color(255, 255, 255));
+        setVerticalTextPosition(getY() / 2);
         setText(text);
     }
 
@@ -52,11 +56,43 @@ public class XButton extends JButton {
         Graphics2D g2d = (Graphics2D) g;
 
         g2d.setColor(bgColor);
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.fillRoundRect(0, 0, 45, 20, 10, 10);
+
+        if (!isEnabled()) {
+            setForeground(Color.GRAY);
+            g2d.setColor(Color.DARK_GRAY);
+            g2d.fillRoundRect(0, 0, 45, 20, 10, 10);
+
+        } else if (model.isRollover()) {
+            if (getText().equals("×")) {
+                setForeground(new Color(0xFFFFFF));
+                g2d.setColor(Color.RED);
+                g2d.fillRoundRect(0, 0, 45, 20, 10, 10);
+            } else {
+                setForeground(new Color(0xFFFFFF));
+                g2d.setColor(new Color(0x666666));
+                g2d.fillRoundRect(0, 0, 45, 20, 10, 10);
+            }
+
+        } else if (model.isPressed()) {
+            setForeground(new Color(0xFFFFFF));
+            g2d.setColor(new Color(0xAAAAAA - 10));
+            g2d.fillRoundRect(0, 0, 45, 20, 10, 10);
+        }
+
+        super.paintComponent(g);
+
     }
 
     @Override
     public Color getBackground() {
         return bgColor;
+    }
+
+    @Override
+    public void setBackground(Color c) {
+        this.bgColor = c;
     }
 
     public boolean getAnimate() {
@@ -65,5 +101,13 @@ public class XButton extends JButton {
 
     public void setAnimate(boolean value) {
         this.animate = value;
+    }
+
+    public boolean getClick() {
+        return this.isClicked;
+    }
+
+    public void setClick(boolean click) {
+        this.isClicked = click;
     }
 }

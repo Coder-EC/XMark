@@ -4,8 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 /**
  * This frame class is the base class of the frame app system. provides
@@ -49,14 +49,14 @@ public class XFrame extends JFrame {
         setUndecorated(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         contentPane.setBackground(UIUtilities.BASE_COLOR);
-        contentPane.setLayout(new BorderLayout());
+        contentPane.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        // Sizing function
+        // TODO Sizing function
     }
 
     private void titleBar() {
 
-        contentPane.add(new TitleBar(), BorderLayout.NORTH);
+        contentPane.add(new TitleBar());
     }
 
 
