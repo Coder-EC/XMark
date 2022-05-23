@@ -1,4 +1,4 @@
-package com.xmark.ui;
+package xmark.ui;
 
 public final class MessageBox {
 

@@ -1,4 +1,4 @@
-package com.xmark.io;
+package xmark.io;
 
 public class XFile {
 }

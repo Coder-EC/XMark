@@ -1,4 +1,4 @@
-package com.xmark.ui;
+package xmark.ui;
 
 import java.awt.*;
 import java.io.Serializable;

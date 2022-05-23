@@ -1,4 +1,4 @@
-package com.xmark.ui;
+package xmark.ui;
 
 import com.xmark.lang.Language;
 

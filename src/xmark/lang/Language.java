@@ -1,4 +1,4 @@
-package com.xmark.lang;
+package xmark.lang;
 
 public abstract class Language {
 }

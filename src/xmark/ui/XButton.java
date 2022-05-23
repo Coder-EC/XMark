@@ -1,4 +1,4 @@
-package com.xmark.ui;
+package xmark.ui;
 
 import javax.swing.DefaultButtonModel;
 import javax.swing.JButton;
@@ -20,20 +20,30 @@ import java.awt.RenderingHints;
  * background will be used when painting component. This button also supports animation
  * settings.
  *
- * @author EC, 2022/5/11 -
+ * @author EC, 2022/5/11 - 2022/5/23
  * @version 1.0
  * @see javax.swing.JButton
  * @see javax.swing.DefaultButtonModel
  */
 public class XButton extends JButton {
 
-    private boolean isClicked = false;
+    /** The click count of each XButton. Can be used in title bar or status judgement. */
+    public int clickCount;
 
     private final DefaultButtonModel model = (DefaultButtonModel) getModel();
 
+    /** Background color for a button. Can be passed in by the constructor. */
     private Color bgColor = new Color(35, 35, 35);
+
     private boolean animate;  // TODO Flag value for settings -> app animation
 
+    /**
+     * The default constructor. Constructs a XButton with an initial text on it.
+     * If there's no background color, the button will be transparent. (On the
+     * default content pane because the default bg is as same as content pane color.)
+     *
+     * @param text The initial text to display on the button.
+     */
     public XButton(String text) {
         setContentAreaFilled(false);
         setPreferredSize(new Dimension(45, 20));
@@ -45,6 +55,14 @@ public class XButton extends JButton {
         setText(text);
     }
 
+    /**
+     * Same constructor as {@code public XButton(String text)} but with bgColor.
+     * Overload version of the default constructor.
+     *
+     * @param text The initial text to display on the button.
+     * @param bgColor The default background color of the button.
+     * @see xmark.ui.XButton
+     */
     public XButton(String text, Color bgColor) {
         this(text);
         this.bgColor = bgColor;
@@ -103,11 +121,4 @@ public class XButton extends JButton {
         this.animate = value;
     }
 
-    public boolean getClick() {
-        return this.isClicked;
-    }
-
-    public void setClick(boolean click) {
-        this.isClicked = click;
-    }
 }

@@ -1,4 +1,4 @@
-package com.xmark.code;
+package xmark.code;
 
 public class SyntaxHighlighter {
 }
