@@ -8,6 +8,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * The tile bar on the basic frame. Located on the left, with a big title,
@@ -25,11 +30,42 @@ import java.awt.Frame;
  */
 public class TitleBar extends JPanel {
 
+    /** The current main frame. */
+    XFrame currFrame = (XFrame) Frame.getFrames()[0];
+
     /** The text on the title bar that shows up current file. */
     public JLabel currFile = new JLabel("/User/test/Documents/demo.md");
 
     public TitleBar() {
         makeUI();
+        activateMove();
+    }
+
+    private void activateMove() {
+        addMouseMotionListener(new MouseAdapter() {
+
+            boolean top = false;
+            boolean down = false;
+            boolean left = false;
+            boolean right = false;
+            Point draggingAnchor = null;
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                draggingAnchor = new Point(e.getX() + getX(), e.getY() + getY());
+                top = false;
+                down = false;
+                left = false;
+                right = false;
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+
+                currFrame.setLocation(e.getLocationOnScreen().x - draggingAnchor.x, e.getLocationOnScreen().y - draggingAnchor.y);
+
+            }
+        });
     }
 
     private void makeUI() {
@@ -38,7 +74,6 @@ public class TitleBar extends JPanel {
 
         // Title bar style settings
         setBackground(Color.BLACK);
-        setMaximumSize(new Dimension(500, 1));
 
         // Title bar panel ui
         JLabel title = new JLabel("XMark");
@@ -53,14 +88,14 @@ public class TitleBar extends JPanel {
         currFile.setForeground(new Color(0xCBCBCB));
 
         close.addActionListener(e -> System.exit(0));
-        min.addActionListener(e -> Frame.getFrames()[0].setExtendedState(
-                Frame.ICONIFIED | Frame.getFrames()[0].getExtendedState()));
+        min.addActionListener(e -> currFrame.setExtendedState(
+                Frame.ICONIFIED | currFrame.getExtendedState()));
 
         max.addActionListener(e -> {
             if (max.clickCount % 2 == 0) {
-                Frame.getFrames()[0].setExtendedState(Frame.MAXIMIZED_HORIZ | Frame.MAXIMIZED_VERT);
+                currFrame.setExtendedState(Frame.MAXIMIZED_HORIZ | Frame.MAXIMIZED_VERT);
             } else {
-                Frame.getFrames()[0].setExtendedState(Frame.NORMAL);
+                currFrame.setExtendedState(Frame.NORMAL);
             }
             max.clickCount++;
         });

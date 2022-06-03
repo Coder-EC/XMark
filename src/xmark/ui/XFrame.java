@@ -26,8 +26,13 @@ import java.awt.FlowLayout;
  */
 public class XFrame extends JFrame {
 
-    /** The original content pane on the frame. Is a holder of the title bar. */
+    private final TitleBar titleBar = new TitleBar();
+
+    /**
+     * The original content pane on the frame. Is a holder of the title bar.
+     */
     public JPanel contentPane = (JPanel) getContentPane();
+
 
     /**
      * The default constructor. No needs to manually pass in any arguments
@@ -49,14 +54,20 @@ public class XFrame extends JFrame {
         setUndecorated(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         contentPane.setBackground(UIUtilities.BASE_COLOR);
-        contentPane.setLayout(new FlowLayout(FlowLayout.LEFT));
+        contentPane.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
-        // TODO Sizing function
+        // Sizing & Moving function
+        ComponentResizer cr = new ComponentResizer();
+        cr.setMinimumSize(new Dimension(480, 300));
+        cr.setSnapSize(new Dimension(1, 1));
+        cr.registerComponent(this);
+
     }
+
 
     private void titleBar() {
 
-        contentPane.add(new TitleBar());
+        contentPane.add(titleBar);
     }
 
 

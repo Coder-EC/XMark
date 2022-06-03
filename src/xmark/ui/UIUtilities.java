@@ -1,6 +1,6 @@
 package xmark.ui;
 
-import com.xmark.lang.Language;
+import xmark.lang.Language;
 
 import java.awt.Color;
 import java.awt.Font;
