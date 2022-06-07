@@ -1,11 +1,17 @@
 package xmark.ui;
 
+import net.miginfocom.swing.MigLayout;
+import xmark.ui.themes.XMarkLookAndFeel;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 
 /**
  * This frame class is the base class of the frame app system. provides
@@ -26,7 +32,10 @@ import java.awt.FlowLayout;
  */
 public class XFrame extends JFrame {
 
-    private final TitleBar titleBar = new TitleBar();
+    /** The text on the title bar that shows up current file. */
+    public JLabel currFile = new JLabel("/User/test/Documents/demo.md");
+
+    public static XFrame currFrame = new XFrame();
 
     /**
      * The original content pane on the frame. Is a holder of the title bar.
@@ -42,7 +51,7 @@ public class XFrame extends JFrame {
      */
     public XFrame() {
         setUI();
-        titleBar();
+        testLAF();
     }
 
     private void setUI() {
@@ -51,28 +60,26 @@ public class XFrame extends JFrame {
         setSize(new Dimension(1200, 750));
         setMinimumSize(new Dimension(120, 75));
         setLocationRelativeTo(null);
-        setUndecorated(true);
+        setTitle(String.format("XMark - %s", currFile.getText()));
+        setIconImage(new ImageIcon("src/img/icon.png").getImage());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         contentPane.setBackground(UIUtilities.BASE_COLOR);
-        contentPane.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        contentPane.setLayout(new MigLayout());
 
-        // Sizing & Moving function
-        ComponentResizer cr = new ComponentResizer();
-        cr.setMinimumSize(new Dimension(480, 300));
-        cr.setSnapSize(new Dimension(1, 1));
-        cr.registerComponent(this);
+        // TODO Window translucency in UI settings
+        // TODO Window wallpaper in UI settings
 
     }
 
-
-    private void titleBar() {
-
-        contentPane.add(titleBar);
+    private void testLAF() {
+        contentPane.add(new JButton("test"));
     }
 
 
     public static void main(String[] args) {
-        new XFrame().setVisible(true);
+        XMarkLookAndFeel.setup();
+        SwingUtilities.updateComponentTreeUI(currFrame);
+        currFrame.setVisible(true);
     }
 
 }

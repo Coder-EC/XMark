@@ -4,11 +4,8 @@ import xmark.lang.Language;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 
 public interface UIUtilities {
-
-    Font[] sysFonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
 
     /** The base color scheme used in the Editor Text Area. */
     Color BASE_COLOR_TEXT_EDIT = new Color(0x252725);
@@ -21,4 +18,5 @@ public interface UIUtilities {
     static void loadSysFont() {}
 
     static void loadLang(Language lang) {}
+
 }
