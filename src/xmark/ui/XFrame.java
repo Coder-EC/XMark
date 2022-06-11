@@ -5,9 +5,11 @@ import xmark.ui.themes.XMarkLookAndFeel;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
@@ -73,6 +75,9 @@ public class XFrame extends JFrame {
 
     private void testLAF() {
         contentPane.add(new JButton("test"));
+        contentPane.add(new JLabel("Test"));
+        contentPane.add(new JTextField());
+        contentPane.add(new JCheckBox("test"));
     }
 
 
