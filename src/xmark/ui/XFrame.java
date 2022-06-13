@@ -2,6 +2,7 @@ package xmark.ui;
 
 import net.miginfocom.swing.MigLayout;
 import xmark.ui.themes.XMarkLookAndFeel;
+import xmark.util.AppUtilities;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -65,7 +66,7 @@ public class XFrame extends JFrame {
         setTitle(String.format("XMark - %s", currFile.getText()));
         setIconImage(new ImageIcon("src/img/icon.png").getImage());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        contentPane.setBackground(UIUtilities.BASE_COLOR);
+        contentPane.setBackground(AppUtilities.BASE_COLOR);
         contentPane.setLayout(new MigLayout());
 
         // TODO Window translucency in UI settings

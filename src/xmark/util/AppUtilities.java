@@ -1,11 +1,13 @@
-package xmark.ui;
+package xmark.util;
 
 import xmark.lang.Language;
+import xmark.ui.CoreTextEditPane;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 
-public interface UIUtilities {
+public interface AppUtilities {
 
     /** The base color scheme used in the Editor Text Area. */
     Color BASE_COLOR_TEXT_EDIT = new Color(0x252725);
@@ -18,5 +20,9 @@ public interface UIUtilities {
     static void loadSysFont() {}
 
     static void loadLang(Language lang) {}
+
+    static void enableDnD(Component comp1, Component comp2) {}
+
+    static void enableSyntaxAnalyze(CoreTextEditPane textEditPane) {}
 
 }
