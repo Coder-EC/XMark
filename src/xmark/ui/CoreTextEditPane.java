@@ -1,6 +1,6 @@
 package xmark.ui;
 
-import javax.swing.JFormattedTextField;
+import javax.swing.JTextPane;
 
-public class CoreTextEditPane extends JFormattedTextField {
+public class CoreTextEditPane extends JTextPane {
 }

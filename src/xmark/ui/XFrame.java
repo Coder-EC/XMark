@@ -75,10 +75,13 @@ public class XFrame extends JFrame {
     }
 
     private void testLAF() {
-        contentPane.add(new JButton("test"));
+        contentPane.add(new JButton("Test"));
         contentPane.add(new JLabel("Test"));
         contentPane.add(new JTextField());
-        contentPane.add(new JCheckBox("test"));
+        contentPane.add(new JCheckBox("Test"));
+        JButton dis = new JButton("Disabled");
+        dis.setEnabled(false);
+        contentPane.add(dis);
     }
 
 
