@@ -1,19 +1,13 @@
 package xmark.ui;
 
 import net.miginfocom.swing.MigLayout;
-import xmark.ui.themes.XMarkLookAndFeel;
 import xmark.util.AppUtilities;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-
 import java.awt.Dimension;
 
 /**
@@ -29,7 +23,7 @@ import java.awt.Dimension;
  * panels needs to be opaque when adding it. (Add it to {@code contentPane}.)
  * This class extends JFrame and uses its methods.
  *
- * @author Coder-EC, 2022/4/13 - 2022/5/10, 2022/5/ - 2022/
+ * @author Coder-EC
  * @version 1.0
  * @see javax.swing.JFrame
  */
@@ -37,8 +31,6 @@ public class XFrame extends JFrame {
 
     /** The text on the title bar that shows up current file. */
     public JLabel currFile = new JLabel("/User/test/Documents/demo.md");
-
-    public static XFrame currFrame = new XFrame();
 
     /**
      * The original content pane on the frame. Is a holder of the title bar.
@@ -54,8 +46,13 @@ public class XFrame extends JFrame {
      */
     public XFrame() {
         setUI();
-        testLAF();
     }
+
+    public XFrame(String title) {
+        this();
+        setTitle(title);
+    }
+
 
     private void setUI() {
 
@@ -74,21 +71,5 @@ public class XFrame extends JFrame {
 
     }
 
-    private void testLAF() {
-        contentPane.add(new JButton("Test"));
-        contentPane.add(new JLabel("Test"));
-        contentPane.add(new JTextField());
-        contentPane.add(new JCheckBox("Test"));
-        JButton dis = new JButton("Disabled");
-        dis.setEnabled(false);
-        contentPane.add(dis);
-    }
-
-
-    public static void main(String[] args) {
-        XMarkLookAndFeel.setup();
-        SwingUtilities.updateComponentTreeUI(currFrame);
-        currFrame.setVisible(true);
-    }
 
 }
