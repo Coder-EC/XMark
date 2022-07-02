@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import java.awt.Dimension;
 
+
 /**
  * This frame class is the base class of the frame app system. provides
  * the basic looking, allows the content panel to display. This frame
@@ -41,7 +42,7 @@ public class XFrame extends JFrame {
     /**
      * The default constructor. No needs to manually pass in any arguments
      * because it automatically decorates the frame and sets up the title
-     * bar. There are two private methods used in the constructor: {@code setUI()}
+     * bar. Two private methods used in the constructor: {@code setUI()}
      * and {@code titleBar()}.
      */
     public XFrame() {
@@ -66,7 +67,6 @@ public class XFrame extends JFrame {
         contentPane.setBackground(AppUtilities.BASE_COLOR);
         contentPane.setLayout(new MigLayout());
 
-        // TODO Window translucency in UI settings
         // TODO Window wallpaper in UI settings
 
     }

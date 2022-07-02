@@ -12,12 +12,14 @@ import javax.swing.plaf.ButtonUI;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 public class ToggleButtonUI extends FlatToggleButtonUI {
 
     public static String buttonType = "toggleButton";
 
-    protected ToggleButtonUI(boolean shared) {
+    public ToggleButtonUI(boolean shared) {
         super(shared);
     }
 
@@ -58,6 +60,22 @@ public class ToggleButtonUI extends FlatToggleButtonUI {
                 }
             }
         } else {
+
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+            int height = c.getHeight();
+            int width = c.getWidth();
+            boolean selected = ((AbstractButton)c).isSelected();
+
+            if (selected) {
+                g2d.setColor(selectedBackground);
+            } else {
+                g2d.setColor(Color.BLACK);
+            }
+            g2d.fillRoundRect(0, 0, width, height, 100, 100);
+            g2d.setColor(Color.WHITE);
+            g2d.fillOval(width - 1, height - 1, width - width / 2, height - height / 2);
         }
     }
 

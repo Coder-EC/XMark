@@ -6,10 +6,9 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
-import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
+
 import java.awt.event.KeyEvent;
 
 public class TestUI {
@@ -33,12 +32,11 @@ public class TestUI {
 
         // Adding part
         frm.setJMenuBar(mb);
-        frm.add(new JToggleButton("Test"));
+        frm.add(new XToggleButton(50, 20));
 
         XMarkLookAndFeel.setup();
         SwingUtilities.updateComponentTreeUI(frm);
         frm.setVisible(true);
 
-        JOptionPane.showMessageDialog(frm, "Message", "Title", JOptionPane.ERROR_MESSAGE);
     }
 }
