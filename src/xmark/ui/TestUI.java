@@ -2,13 +2,16 @@ package xmark.ui;
 
 import xmark.ui.themes.XMarkLookAndFeel;
 
+import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JComboBox;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JScrollBar;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-
 import java.awt.event.KeyEvent;
 
 public class TestUI {
@@ -30,9 +33,19 @@ public class TestUI {
         m.add(mi3);
         mb.add(m);
 
+        JComboBox<String> cb = new JComboBox<>();
+        cb.putClientProperty("JComponent.roundRect", true);
+
+        JButton bt = new JButton("Test");
+        bt.setToolTipText("A Simple Test Button");
+
         // Adding part
         frm.setJMenuBar(mb);
+        frm.add(bt);
         frm.add(new XToggleButton(50, 20));
+        frm.add(new JTextField());
+        frm.add(new JScrollBar());
+        frm.add(cb);
 
         XMarkLookAndFeel.setup();
         SwingUtilities.updateComponentTreeUI(frm);

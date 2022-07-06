@@ -10,8 +10,6 @@ Statistics & Info:
 -------------------
 - Project name: XMark
 - 项目名称：XMark
-- Author: EC
-- 作者：EC<br>
 - Code amount:
 - 代码量：<br>
 - Time taken: 2022/4/12 - xxx

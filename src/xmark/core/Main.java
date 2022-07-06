@@ -1,4 +1,4 @@
-package xmark.logic;
+package xmark.core;
 
 public class Main {
 }
