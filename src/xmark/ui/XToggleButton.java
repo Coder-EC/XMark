@@ -1,6 +1,7 @@
 package xmark.ui;
 
 import javax.swing.JToggleButton;
+import javax.swing.UIManager;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -29,7 +30,11 @@ public class XToggleButton extends JToggleButton {
 
         if (selected) {
             setText("ON");
-            g2d.setColor(new Color(0x00FFFF));
+            if (UIManager.getLookAndFeel().getName().equals("XLafLight")) {
+                g2d.setColor(new Color(0x9BB3FF));
+            } else {
+                g2d.setColor(new Color(0x00FFFF));
+            }
             g2d.fillRoundRect(0, 0, width, height, 15, 15);
         } else {
             setText("OFF");

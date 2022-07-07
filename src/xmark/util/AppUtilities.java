@@ -2,7 +2,9 @@ package xmark.util;
 
 import xmark.lang.Language;
 import xmark.ui.CoreTextEditPane;
+import xmark.ui.XFrame;
 
+import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -24,5 +26,6 @@ public interface AppUtilities {
     static void enableDnD(Component comp1, Component comp2) {}
 
     static void enableSyntaxAnalyze(CoreTextEditPane textEditPane) {}
+
 
 }

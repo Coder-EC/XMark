@@ -1,6 +1,6 @@
 package xmark.ui;
 
-import xmark.ui.themes.XMarkLookAndFeel;
+import xmark.ui.themes.XLafDark;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
@@ -12,6 +12,7 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+
 import java.awt.event.KeyEvent;
 
 public class TestUI {
@@ -47,7 +48,8 @@ public class TestUI {
         frm.add(new JScrollBar());
         frm.add(cb);
 
-        XMarkLookAndFeel.setup();
+        XLafDark.setup();
+//        frm.setBgLight();
         SwingUtilities.updateComponentTreeUI(frm);
         frm.setVisible(true);
 

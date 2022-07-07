@@ -69,7 +69,7 @@ public class ToolTipUI extends FlatToolTipUI {
     }
 
     private boolean isMultiLine(JComponent c) {
-        String text = ((JToolTip)c).getTipText();
+        String text = ((JToolTip) c) .getTipText();
         return c.getClientProperty("html") == null && text != null && text.indexOf(10) >= 0;
     }
 }

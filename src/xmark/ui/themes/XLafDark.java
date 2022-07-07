@@ -2,14 +2,14 @@ package xmark.ui.themes;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 
-public class XMarkLookAndFeel extends FlatDarkLaf {
+public class XLafDark extends FlatDarkLaf {
 
     public static boolean setup() {
-        return setup(new XMarkLookAndFeel());
+        return setup(new XLafDark());
     }
 
     @Override
     public String getName() {
-        return "XMarkLookAndFeel";
+        return "XLafDark";
     }
 }
