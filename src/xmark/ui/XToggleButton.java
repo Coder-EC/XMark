@@ -9,6 +9,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+
+/**
+ * A simple custom toggle button UI class used in the settings.
+ * @author EC
+ */
 public class XToggleButton extends JToggleButton {
 
     public XToggleButton(int width, int height) {

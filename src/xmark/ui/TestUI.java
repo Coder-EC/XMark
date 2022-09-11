@@ -1,6 +1,7 @@
 package xmark.ui;
 
 import xmark.ui.themes.XLafDark;
+import xmark.ui.themes.XLafLight;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
@@ -8,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollBar;
 import javax.swing.JTextField;
@@ -39,6 +41,7 @@ public class TestUI {
 
         JButton bt = new JButton("Test");
         bt.setToolTipText("A Simple Test Button");
+        bt.addActionListener(e -> JOptionPane.showMessageDialog(frm, "foo", "bar", JOptionPane.ERROR_MESSAGE));
 
         // Adding part
         frm.setJMenuBar(mb);

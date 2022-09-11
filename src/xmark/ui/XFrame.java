@@ -1,14 +1,12 @@
 package xmark.ui;
 
 import net.miginfocom.swing.MigLayout;
-import xmark.ui.themes.XLafDark;
 import xmark.util.AppUtilities;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.LookAndFeel;
 import javax.swing.WindowConstants;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -32,8 +30,6 @@ import java.awt.Dimension;
  * @see javax.swing.JFrame
  */
 public class XFrame extends JFrame {
-
-    private LookAndFeel mainLF = new XLafDark();
 
     /** The text on the title bar that shows up current file. */
     public JLabel currFile = new JLabel("/User/test/Documents/demo.md");
@@ -80,12 +76,4 @@ public class XFrame extends JFrame {
         contentPane.setBackground(new Color(0xFFFFFF));
     }
 
-
-    public LookAndFeel getMainLF() {
-        return mainLF;
-    }
-
-    public void setMainLF(LookAndFeel mainLF) {
-        this.mainLF = mainLF;
-    }
 }

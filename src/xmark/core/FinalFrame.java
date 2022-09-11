@@ -1,4 +1,6 @@
 package xmark.core;
 
-public class FinalFrame {
+import xmark.ui.XFrame;
+
+public class FinalFrame extends XFrame {
 }
